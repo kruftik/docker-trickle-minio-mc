@@ -1,0 +1,26 @@
+name: Master Build
+
+on:
+  push:
+    branches: [master]
+  #    paths:
+  #      - '.github/workflows/master-build.yml'
+  pull_request:
+    branches: [master]
+
+jobs:
+  master-build:
+    #    name: build the app and image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: trickle-minio-mc
+          tag_with_ref: true
