@@ -3,7 +3,7 @@ FROM alpine:latest
 ENV TRICKLE_VERSION=596bb13f2bc323fc8e7783b8dcba627de4969e07
 ENV TRICKLE_SHA256SUM=a4111063d67a3330025eea2f29ebd8c8605e43cc1be0bf384b48f0eab8daf508
 
-#RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 
 # trickle
 #  work around issue #16:  https://github.com/mariusae/trickle/issues/16
